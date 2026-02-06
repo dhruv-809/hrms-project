@@ -6,6 +6,6 @@ db = client["hrms_db"]
 
 try:
     client.admin.command("ping")
-    print("✅ MongoDB Connected Successfully (LOCAL)!")
+    print("MongoDB Connected Successfully (LOCAL)!")
 except Exception as e:
-    print("❌ MongoDB Connection Failed:", e)
+    print("MongoDB Connection Failed:", e)

@@ -11,7 +11,7 @@ employees_collection = db["employees"]
 def mark_attendance():
     data = request.json
     employeeId = data.get("employeeId")
-    date = data.get("date")  # format: YYYY-MM-DD
+    date = data.get("date")
     status = data.get("status")
 
     if not employeeId or not date or not status:
@@ -41,7 +41,6 @@ def mark_attendance():
 
 @attendance_bp.route("/<employeeId>", methods=["GET"])
 def get_attendance(employeeId):
-    # check employee exists
     employee = employees_collection.find_one({"employeeId": employeeId})
     if not employee:
         return jsonify({"error": "Employee not found"}), 404
@@ -53,10 +52,9 @@ def get_attendance(employeeId):
 
     return jsonify(records), 200
 
-# FILTER ATTENDANCE BY DATE (Bonus)
 @attendance_bp.route("/<employeeId>/filter", methods=["GET"])
 def filter_attendance_by_date(employeeId):
-    date = request.args.get("date")  # YYYY-MM-DD
+    date = request.args.get("date")
 
     if not date:
         return jsonify({"error": "date query param is required"}), 400

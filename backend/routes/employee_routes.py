@@ -51,7 +51,6 @@ def add_employee():
 
 @employee_bp.route("/", methods=["GET"])
 def get_employees():
-    # employees = list(employees_collection.find({}, {"_id": 0}))
     employees = list(employees_collection.find({}, {"_id": 0}).sort("createdAt", -1))
     return jsonify(employees), 200
 
