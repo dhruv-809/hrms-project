@@ -128,7 +128,7 @@ export default function Employees() {
       </div>
 
       {/* Employee Table */}
-      <div className="bg-white p-5 rounded shadow">
+      <div className="bg-white p-4 md:p-6 rounded-lg shadow">
         <h3 className="text-lg font-semibold mb-4">Employee List</h3>
 
         {loading && <Loader />}
@@ -138,6 +138,7 @@ export default function Employees() {
         )}
 
         {!loading && employees.length > 0 && (
+          <div className="overflow-x-auto -mx-4 md:mx-0">
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-gray-200 text-left">
@@ -168,6 +169,7 @@ export default function Employees() {
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </div>
     </div>
