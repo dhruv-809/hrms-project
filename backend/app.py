@@ -6,7 +6,7 @@ from routes.attendance_routes import attendance_bp
 from routes.dashboard_routes import dashboard_bp
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins="*")
 
 app.register_blueprint(employee_bp, url_prefix="/api/employees")
 app.register_blueprint(attendance_bp, url_prefix="/api/attendance")
